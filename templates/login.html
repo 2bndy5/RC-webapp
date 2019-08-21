@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>LIRC - Linux Infrared Remote Control</title>
+        <link rel="stylesheet" type="text/css" href="/static/content/site.css" />
+        <link rel="shortcut icon" href="static/raspberry-pi-lirc.ico" />
+
+    </head>
+    <body>
+        <div class="greeting">
+            <button class="submitbtn" id="login" onclick="document.getElementById('getID').style.display='block'">Login</button>
+            <p>or</p>
+            <button class="submitbtn" onclick="document.getElementById('makeID').style.display='block'">Create an account</button>
+            <p>An account is needed to save your remotes and preferences. No personal information is used online.</p>
+        </div>
+
+        <!-- The Modal -->
+        <div id="getID" class="modal">
+            <form class="modal-content animate" action="/action_page.php">
+                <!-- <div class="imgcontainer">
+                <img src="img_avatar2.png" alt="Avatar" class="avatar">
+                </div> -->
+
+                <div class="container">
+                    <span onclick="document.getElementById('getID').style.display='none'" class="close" title="Close Modal">&times;</span>
+                    <h1>Sign In</h1>
+                    <label for="uname"><b>Please enter your Username</b></label>
+                    <input type="text" placeholder="Enter Username" name="uname" required>
+
+                    <div class="clearfix">
+                        <button type="button" onclick="document.getElementById('getID').style.display='none'" class="cancelbtn">Cancel</button>
+                        <button type="submit" class="submitbtn">Login</button>
+                    </div>
+                    <!-- <label>
+                        <input type="checkbox" checked="checked" name="remember"> Remember me
+                    </label> -->
+                </div>
+
+                <!-- <span class="psw">Forgot <a href="#">password?</a></span> -->
+                </div>
+            </form>
+        </div>
+
+        <!-- The Modal (contains the Sign Up form) -->
+        <div id="makeID" class="modal">
+            <form class="modal-content animate" action="/action_page.php">
+                <div class="container">
+                    <span onclick="document.getElementById('makeID').style.display='none'" class="close" title="Close Modal">&times;</span>
+                    <h1>Sign Up</h1>
+                    <p>Please enter your name (nicknames are best).</p>
+                    <label for="uname"><b>Username</b></label>
+                    <input type="text" placeholder="Enter Your unique name" name="uname" required>
+
+                    <!-- <label>
+                        <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+                    </label> -->
+
+                    <!-- <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p> -->
+                    <div class="clearfix">
+                        <button type="button" onclick="document.getElementById('makeID').style.display='none'" class="cancelbtn">Cancel</button>
+                        <button type="submit" class="submitbtn">Sign Up</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <script>
+        // Get the modal
+        var loginModal = document.getElementById('getID');
+        var setupModal = document.getElementById('makeID');
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event){
+            if (event.target == loginModal || event.target == setupModal){
+                modal.style.display = "none";
+            }
+        }
+        </script>
+    </body>
+</html>

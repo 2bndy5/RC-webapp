@@ -6,19 +6,31 @@
         <title>LIRC - Linux Infrared Remote Control</title>
         <link rel="stylesheet" type="text/css" href="/static/content/site.css" />
         <link rel="shortcut icon" href="static/raspberry-pi-lirc.ico" />
-        
+
     </head>
     <body>
         <script src="/static/scripts/hamburger.js"></script>
         <!-- Use any element to open the sidenav -->
         <button class="hamburger" id="ham" onclick="openNav()">&#9776;</button>
         <div id="mySidenav" class="sidenav">
-            <button class="closebtn" onclick="closeNav()">&#735;</button>
-            <a href="/remote">Remote Control</a>
+            <button class="closebtn" onclick="closeNav()">&times;</button>
+            <a href="/settings/user">My preferences</a>
+            <div class="favs">
+                <a href="remote.html">test list 1</a>
+                <a href="remote.html">test list 2</a>
+                <a href="remote.html">test list 3</a>
+                <a href="remote.html">test list 4</a>
+                <a href="remote.html">test list 5</a>
+                <a href="remote.html">test list 6</a>
+                <a href="remote.html">test list 7</a>
+                <a href="remote.html">test list 8</a>
+                <a href="remote.html">test list 9</a>
+                <a href="remote.html">test list 10</a>
+            </div>
             <a href="/settings">Settings</a>
             <a href="/about">About</a>
         </div>
-        
+
 
         <!-- Add all page content inside this div if you want the side nav to push page content to the right (not used if you only want the sidenav to sit on top of the page -->
         <div id="main">{% block content %}{% endblock %}</div>

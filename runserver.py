@@ -21,30 +21,24 @@ def handle_disconnect():
     print('websocket Client disconnected')
 
 @app.route('/')
+def login():
+    """Renders the login page"""
+    return render_template('login.html')
+
 @app.route('/remote')
 def remote():
     """Renders the remote control page."""
-    return render_template(
-        'remote.html',
-        title='Remote Control')
+    return render_template('remote.html', title='Remote Control')
 
 @app.route('/settings')
 def settings_page():
-    """Renders the features page."""
-    return render_template(
-        'settings.html',
-        title='Settings',
-        message='Try our more advanced features!'
-    )
+    """Renders the settings page."""
+    return render_template('settings.html', title='Settings')
 
 @app.route('/about')
 def about():
     """Renders the about page."""
-    return render_template(
-        'about.html',
-        title='About this project:',
-        message='This Web App is meant to control a lirc deamon running on a Raspberry Pi. '
-    )
+    return render_template('about.html', title='About this project:')
 
 if __name__ == '__main__':
     try:

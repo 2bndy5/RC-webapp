@@ -1,15 +1,13 @@
 {% extends "layout.html" %}
 
-
-
 {% block content %}
 <script type="text/javascript" src="/static/scripts/socket.io.min.js"></script>
-<script type="text/javascript">
-var socket = io.connect({transports: ['websocket']});
-</script>
+<script type="text/javascript">var socket = io.connect({transports: ['websocket']});</script>
 
 <h2>{{ title }}</h2>
 <!-- <script src="/static/scripts/controller.js"></script>
 <script>initRemote();</script> -->
+
+<p>***Placeholder for {{ title }} menu***</p>
 
 {% endblock %}
