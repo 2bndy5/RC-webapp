@@ -9,6 +9,15 @@
 
     </head>
     <body>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul class=flashes>
+            {% for message in messages %}
+            <li>{{ message }}</li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+        {% endwith %}
         <div class="greeting">
             <button class="submitbtn" id="login" onclick="document.getElementById('getID').style.display='block'">Login</button>
             <p>or</p>
@@ -18,7 +27,7 @@
 
         <!-- The Modal -->
         <div id="getID" class="modal">
-            <form class="modal-content animate" action="/action_page.php">
+            <form class="modal-content animate" method="post">
                 <!-- <div class="imgcontainer">
                 <img src="img_avatar2.png" alt="Avatar" class="avatar">
                 </div> -->
@@ -26,8 +35,8 @@
                 <div class="container">
                     <span onclick="document.getElementById('getID').style.display='none'" class="close" title="Close Modal">&times;</span>
                     <h1>Sign In</h1>
-                    <label for="uname"><b>Please enter your Username</b></label>
-                    <input type="text" placeholder="Enter Username" name="uname" required>
+                    <label for="username"><b>Please enter your Username</b></label>
+                    <input type="text" placeholder="Enter Username" name="username" required>
 
                     <div class="clearfix">
                         <button type="button" onclick="document.getElementById('getID').style.display='none'" class="cancelbtn">Cancel</button>
@@ -45,17 +54,18 @@
 
         <!-- The Modal (contains the Sign Up form) -->
         <div id="makeID" class="modal">
-            <form class="modal-content animate" action="/action_page.php">
+            <form class="modal-content animate" method="post">
                 <div class="container">
                     <span onclick="document.getElementById('makeID').style.display='none'" class="close" title="Close Modal">&times;</span>
                     <h1>Sign Up</h1>
                     <p>Please enter your name (nicknames are best).</p>
-                    <label for="uname"><b>Username</b></label>
-                    <input type="text" placeholder="Enter Your unique name" name="uname" required>
+                    <label for="username"><b>Username</b></label>
+                    <input type="text" placeholder="Enter Your unique name" name="username" required>
 
                     <!-- <label>
                         <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
                     </label> -->
+                    <input type="hidden" name="register" value="True">
 
                     <!-- <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p> -->
                     <div class="clearfix">
