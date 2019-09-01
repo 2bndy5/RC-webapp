@@ -1,25 +1,9 @@
+
 body {
-  font-family: 'Noto Sans', sans-serif;
-  margin: 0;
   width: 100%;
   height: 100vh;
-  background: #272727;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-.hamburger {
-  background: none;
-  position: absolute;
-  top: 0;
-  left: 0;
-  line-height: 50px;
-  padding: 5px 15px 0px 15px;
-  color: #309c41;
-  border: 0;
-  font-size: 45px;
-  cursor: pointer;
-  outline: none;
 }
 
 /* The side navigation menu */
@@ -50,18 +34,12 @@ body {
 .sidenav a:hover {
   color: #f1f1f1;
 }
-
-/* Position and style the close button (top right corner) */
-.sidenav .closebtn {
-  background: none;
-  outline: none;
-  color: #9d1c1c;
+/*
+.sidenav .delete {
   position: absolute;
-  border: 0;
   top: 0;
   right: 0;
-  font-size: 65px;
-}
+} */
 
 /* favorites list attributes */
 .favs {
@@ -76,47 +54,6 @@ body {
   padding: 20px;
 }
 
-.info, .success, .warning, .error {
-  border: 3px solid;
-  border-radius:10px;
-}
-
-.info:before {
-  content:"f05a";
-}
-
-.success:before {
-  content:'f00c';
-}
-
-.warning:before {
-  content:'f071';
-}
-
-.error:before {
-  content:'f057';
-}
-
-.info {
-  color: #00529B;
-  background-color: #BDE5F8;
-}
-
-.success {
-  color: #4F8A10;
-  background-color: #DFF2BF;
-}
-
-.warning {
-  color: #9F6000;
-  background-color: #FEEFB3;
-}
-
-.error {
-  color: #D8000C;
-  background-color: #FFD2D2;
-}
-
 /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
 @media screen and (max-height: 450px) {
   .sidenav {padding-top: 15px;}
@@ -126,26 +63,6 @@ body {
 p, h2, h3, h4 {
   color: #FFFFFF;
   padding: 15px;
-}
-
-/* width */
-::-webkit-scrollbar {
-  width: 3px;
-}
-
-/* Track */
-::-webkit-scrollbar-track {
-  background: #015aff;
-}
-
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: rgb(1, 213, 255);
-}
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: rgb(2, 253, 190);
 }
 
 /* The Modal (background) */

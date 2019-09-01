@@ -4,19 +4,20 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>LIRC - Linux Infrared Remote Control</title>
+        <link rel="stylesheet" type="text/css" href="/static/content/bulma.css" />
         <link rel="stylesheet" type="text/css" href="/static/content/site.css" />
         <link rel="shortcut icon" href="static/raspberry-pi-lirc.ico" />
     </head>
-    <body>
+    <body class="has-background-black-ter">
         <script src="/static/scripts/hamburger.js"></script>
-        <!-- Use any element to open the sidenav -->
-        <button class="hamburger" id="ham" onclick="openNav()">&#9776;</button>
+
         <div id="mySidenav" class="sidenav">
-            <button class="closebtn" onclick="closeNav()">&times;</button>
+            <button class="delete has-background-danger is-outlined is-large is-pulled-right" onclick="closeNav()"></button>
+            <!-- char 'x' = &times; -->
             <a href="/settings/user">My preferences</a>
             <div class="favs">
                 {% for r in current_user.remotes %}
-                    <a href="remote.html">{{r.name}}</a>
+                    <a href={{r.link}}>{{r.name}}</a>
                 {% endfor %}
             </div>
             <a href="/settings">Settings</a>
@@ -24,15 +25,27 @@
         </div>
 
         <!-- Add all page content inside this div if you want the side nav to push page content to the right (not used if you only want the sidenav to sit on top of the page -->
-        <div id="main">{% block content %}{% endblock %}</div>
+        <div id="main">
+            <nav class="navbar is-dark is-marginless is-paddingless is-fullhd">
+                <div class="navbar-menu">
+                    <button class="button is-success is-outlined" id="ham" onclick="openNav()">&#9776;</button>
+                </div>
+            </nav>
+            {% block content %}{% endblock %}
+        </div>
         {% with messages = get_flashed_messages(with_categories=true) %}
             {% if messages %}
-                <ul class=flashes>
                 {% for category, message in messages %}
-                    <li class="{{ category }}">{{ message }}</li>
+                    {% if category.find("error") > 0 %}
+                        <div class="notification is-danger">
+                    {% else %}
+                        <div class="notification is-{{ category }}">
+                    {% endif %}
+                    <button class="delete"></button>
+                    <p>{{ message }}</p>
+                    </div>
                 {% endfor %}
-                </ul>
             {% endif %}
-        {% endwith %}    
+        {% endwith %}
     </body>
 </html>

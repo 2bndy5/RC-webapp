@@ -16,10 +16,15 @@ app.config['SECRET_KEY'] = 'secret!'
 login_manager.init_app(app)
 socketio.init_app(app)
 
+class Remote:
+    def __init__(self, name, link='/remote'):
+        self.name = name
+        self.link = link
+
 class User(UserMixin):
     def __init__(self, name):
         self.id = name
-        self.remotes = {}
+        self.remotes = []
         self.config = {}
         self._load_config()
 
@@ -38,13 +43,14 @@ class User(UserMixin):
 class AnonUser(AnonymousUserMixin):
     def __init__(self):
         self.id = 'anonymous'
-        self.remotes = {}
+        self.remotes = []
         self.config = {}
 
     def get_id(self):
         return self.id
 
 users = {'admin': User(u'admin'), 'anonymous': AnonUser()}
+users['admin'].remotes.append(Remote('dummy remote'))
 
 @login_manager.user_loader
 def load_user(user_id):
@@ -56,17 +62,19 @@ def login():
     """Renders the login page"""
     if request.method == 'POST':
         form = request.form
-        uName = form.get('username', default=None)
-        isNew = bool(form.get('register', default=False))
-        if uName is not None:
-            if bool(users.get(uName)) or isNew: # login
-                if isNew and not bool(users.get(uName)): # add new user
-                    users[uName] = User(uName)
-                    flash('Account created successfully.')
-                if users.get(uName):
-                    login_user(users.get(uName))
-                    flash('Logged in successfully.')
+        user_name = form.get('username', default=None)
+        is_new = bool(form.get('register', default=False))
+        if user_name is not None:
+            if bool(users.get(user_name)) or is_new: # login
+                if is_new and not bool(users.get(user_name)): # add new user
+                    users[user_name] = User(user_name)
+                    flash('Account created successfully.', 'info')
+                if users.get(user_name):
+                    login_user(users.get(user_name))
+                    flash('Logged in successfully.', 'success')
                     return render_template('remote.html', title='Remote Control')
+        else:
+            flash('username, {}, does not exist!'.format(user_name), 'error')
     return render_template('login.html')
 
 @app.route("/logout")

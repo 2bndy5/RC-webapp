@@ -4,40 +4,48 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>LIRC - Linux Infrared Remote Control</title>
+        <style>:root {--divider-background-color:hsl(0, 0%, 14%);}</style>
+        <link rel="stylesheet" type="text/css" href="/static/content/bulma.css" />
+        <link rel="stylesheet" type="text/css" href="/static/content/bulma-divider.min.css" />
         <link rel="stylesheet" type="text/css" href="/static/content/site.css" />
         <link rel="shortcut icon" href="static/raspberry-pi-lirc.ico" />
 
     </head>
-    <body>
-        <div class="greeting">
-            <button class="submitbtn" id="login" onclick="document.getElementById('getID').style.display='block'">Login</button>
-            <p>or</p>
-            <button class="submitbtn" onclick="document.getElementById('makeID').style.display='block'">Create an account</button>
+    <body class="has-background-black-ter">
+        <div class="section">
+            <button class="button is-info" onclick="document.getElementById('getID').style.display='block'">Login</button>
+            <div class="is-divider is-light" data-content="OR"></div>
+            <button class="button is-success" onclick="document.getElementById('makeID').style.display='block'">Create an account</button>
             <p>An account is needed to save your remotes and preferences. No personal information is used online.</p>
         </div>
 
         <!-- The Modal -->
         <div id="getID" class="modal">
+            <div onclick="document.getElementById('getID').style.display='none'" class="modal-background"></div>
             <form class="modal-content animate" method="post">
-                <!-- <div class="imgcontainer">
-                <img src="img_avatar2.png" alt="Avatar" class="avatar">
-                </div> -->
-
-                <div class="container">
-                    <span onclick="document.getElementById('getID').style.display='none'" class="close" title="Close Modal">&times;</span>
+                <div class="modal-container">
+                    <!-- <div class="imgcontainer">
+                    <img src="img_avatar2.png" alt="Avatar" class="avatar">
+                    </div> -->
                     <h1>Sign In</h1>
                     <label for="username"><b>Please enter your Username</b></label>
                     <input type="text" placeholder="Enter Username" name="username" required>
 
-                    <div class="clearfix">
-                        <button type="button" onclick="document.getElementById('getID').style.display='none'" class="cancelbtn">Cancel</button>
-                        <button type="submit" class="submitbtn">Login</button>
+                    <div class="columns">
+                        <div class="column">
+                            <button type="button" onclick="document.getElementById('getID').style.display='none'" class="button is-danger">Cancel</button>
+                        </div>
+                        <div class="column">
+                            <button type="submit" class="button is-success">Login</button>
+                        </div>
+                        <!-- <div class="column">
+                            <label>
+                                <input type="checkbox" checked="checked" name="remember"> Remember me
+                            </label>
+                        </div> -->
                     </div>
-                    <!-- <label>
-                        <input type="checkbox" checked="checked" name="remember"> Remember me
-                    </label> -->
                 </div>
-
+                <button class="modal-close is-large" aria-label="close" onclick="document.getElementById('getID').style.display='none'"></button>
                 <!-- <span class="psw">Forgot <a href="#">password?</a></span> -->
                 </div>
             </form>
@@ -45,9 +53,9 @@
 
         <!-- The Modal (contains the Sign Up form) -->
         <div id="makeID" class="modal">
+            <div onclick="document.getElementById('makeID').style.display='none'" class="modal-background"></div>
             <form class="modal-content animate" method="post">
-                <div class="container">
-                    <span onclick="document.getElementById('makeID').style.display='none'" class="close" title="Close Modal">&times;</span>
+                <div class="modal-container">
                     <h1>Sign Up</h1>
                     <p>Please enter your name (nicknames are best).</p>
                     <label for="username"><b>Username</b></label>
@@ -59,25 +67,17 @@
                     <input type="hidden" name="register" value="True">
 
                     <!-- <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p> -->
-                    <div class="clearfix">
-                        <button type="button" onclick="document.getElementById('makeID').style.display='none'" class="cancelbtn">Cancel</button>
-                        <button type="submit" class="submitbtn">Sign Up</button>
+                    <div class="columns">
+                        <div class="column">
+                            <button type="button" onclick="document.getElementById('makeID').style.display='none'" class="button is-danger">Cancel</button>
+                        </div>
+                        <div class="column">
+                            <button type="submit" class="button is-success">Sign Up</button>
+                        </div>
                     </div>
                 </div>
+                <button class="modal-close is-large" aria-label="close" onclick="document.getElementById('makeID').style.display='none'"></button>
             </form>
         </div>
-
-        <script>
-        // Get the modal
-        var loginModal = document.getElementById('getID');
-        var setupModal = document.getElementById('makeID');
-
-        // When the user clicks anywhere outside of the modal, close it
-        window.onclick = function(event){
-            if (event.target == loginModal || event.target == setupModal){
-                modal.style.display = "none";
-            }
-        }
-        </script>
     </body>
 </html>
