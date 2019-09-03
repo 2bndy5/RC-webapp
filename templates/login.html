@@ -4,80 +4,94 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>LIRC - Linux Infrared Remote Control</title>
-        <style>:root {--divider-background-color:hsl(0, 0%, 14%);}</style>
-        <link rel="stylesheet" type="text/css" href="/static/content/bulma.css" />
-        <link rel="stylesheet" type="text/css" href="/static/content/bulma-divider.min.css" />
-        <link rel="stylesheet" type="text/css" href="/static/content/site.css" />
+        <link rel="stylesheet" type="text/css" href="/static/css/bulma.css" />
+        <link rel="stylesheet" type="text/css" href="/static/css/bulma-divider.min.css" />
+        <link rel="stylesheet" type="text/css" href="/static/css/site.css" />
+        <link rel="stylesheet" type="text/css" href="/static/css/all.css">
         <link rel="shortcut icon" href="static/raspberry-pi-lirc.ico" />
 
     </head>
     <body class="has-background-black-ter">
-        <div class="section">
-            <button class="button is-info" onclick="document.getElementById('getID').style.display='block'">Login</button>
-            <div class="is-divider is-light" data-content="OR"></div>
-            <button class="button is-success" onclick="document.getElementById('makeID').style.display='block'">Create an account</button>
-            <p>An account is needed to save your remotes and preferences. No personal information is used online.</p>
+        <p style="text-align:center; padding:15px;">An account is needed to save your remotes and preferences. No personal information is used online.</p>
+        <div class="columns is-vcentered">
+            <div class="column" style="text-align:center;">
+                <button class="button is-info is-medium is-outlined is-rounded" onclick="document.getElementById('getID').style.display='block'">Login</button>
+            </div>
+            <div class="column">
+                <div class="is-divider is-light" data-content="OR"></div>
+            </div>
+            <div class="column" style="text-align:center;">
+                <button class="button is-success is-medium is-outlined is-rounded" onclick="document.getElementById('makeID').style.display='block'">Create an account</button>
+            </div>
         </div>
 
         <!-- The Modal -->
         <div id="getID" class="modal">
             <div onclick="document.getElementById('getID').style.display='none'" class="modal-background"></div>
-            <form class="modal-content animate" method="post">
-                <div class="modal-container">
-                    <!-- <div class="imgcontainer">
-                    <img src="img_avatar2.png" alt="Avatar" class="avatar">
-                    </div> -->
-                    <h1>Sign In</h1>
-                    <label for="username"><b>Please enter your Username</b></label>
-                    <input type="text" placeholder="Enter Username" name="username" required>
-
-                    <div class="columns">
-                        <div class="column">
-                            <button type="button" onclick="document.getElementById('getID').style.display='none'" class="button is-danger">Cancel</button>
+            <div class="modal-card has-background-black-ter animate">
+                <form method="post">
+                    <header class="modal-card-head has-background-grey-darker">
+                        <h1 class="modal-card-title has-text-white">Sign In</h1>
+                        <button class="delete is-large" aria-label="close" onclick="document.getElementById('getID').style.display='none'"></button>
+                    </header>
+                    <section class="modal-card-body has-background-black-ter has-text-white">
+                        <label for="username"><b>Username</b></label>
+                        <div class="control has-text-white has-icons-left">
+                            <input class="input is-rounded has-background-grey-dark has-text-white" type="text" placeholder="Username" name="username" required>
+                            <span class="icon is-left">
+                                <i class="far fa-user"></i>
+                            </span>
                         </div>
-                        <div class="column">
-                            <button type="submit" class="button is-success">Login</button>
-                        </div>
-                        <!-- <div class="column">
-                            <label>
-                                <input type="checkbox" checked="checked" name="remember"> Remember me
-                            </label>
-                        </div> -->
-                    </div>
-                </div>
-                <button class="modal-close is-large" aria-label="close" onclick="document.getElementById('getID').style.display='none'"></button>
-                <!-- <span class="psw">Forgot <a href="#">password?</a></span> -->
-                </div>
-            </form>
+                    </section>
+                    <footer class="modal-card-foot has-background-grey-darker">
+                        <button type="button" onclick="document.getElementById('getID').style.display='none'" class="button is-danger is-rounded has-text-black">
+                            <strong>Cancel</strong>
+                        </button>
+                        <button type="submit" class="button is-success is-rounded has-text-black">
+                            <strong>Login</strong>
+                        </button>
+                        <label class="checkbox has-text-white">
+                            <input type="checkbox" checked="checked" name="remember"> Remember me
+                        </label>
+                        <!-- <span class="psw">Forgot <a href="#">password?</a></span> -->
+                    </footer>
+                </form>
+            </div>
         </div>
 
         <!-- The Modal (contains the Sign Up form) -->
         <div id="makeID" class="modal">
             <div onclick="document.getElementById('makeID').style.display='none'" class="modal-background"></div>
-            <form class="modal-content animate" method="post">
-                <div class="modal-container">
-                    <h1>Sign Up</h1>
-                    <p>Please enter your name (nicknames are best).</p>
-                    <label for="username"><b>Username</b></label>
-                    <input type="text" placeholder="Enter Your unique name" name="username" required>
-
-                    <!-- <label>
-                        <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
-                    </label> -->
-                    <input type="hidden" name="register" value="True">
-
-                    <!-- <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p> -->
-                    <div class="columns">
-                        <div class="column">
-                            <button type="button" onclick="document.getElementById('makeID').style.display='none'" class="button is-danger">Cancel</button>
+            <div class="modal-card has-background-black-ter animate">
+                <form method="post">
+                    <header class="modal-card-head has-background-grey-darker">
+                        <h1 class="modal-card-title has-text-white">Sign Up</h1>
+                        <button class="delete is-large" aria-label="close" onclick="document.getElementById('makeID').style.display='none'"></button>
+                    </header>
+                    <section class="modal-card-body has-background-black-ter has-text-white">
+                        <p>Please enter your unique name (nicknames are best).</p>
+                        <label for="username"><b>Username</b></label>
+                        <div class="control has-text-white has-icons-left">
+                            <input class="input is-rounded has-background-grey-dark has-text-white" type="text" placeholder="Username" name="username" required>
+                            <span class="icon is-left">
+                                <i class="far fa-user"></i>
+                            </span>
                         </div>
-                        <div class="column">
-                            <button type="submit" class="button is-success">Sign Up</button>
-                        </div>
-                    </div>
-                </div>
-                <button class="modal-close is-large" aria-label="close" onclick="document.getElementById('makeID').style.display='none'"></button>
-            </form>
+                        <input type=hidden name="register" value="True">
+                    </section>
+                    <footer class="modal-card-foot has-background-grey-darker">
+                        <button type="button" onclick="document.getElementById('getID').style.display='none'" class="button is-danger is-rounded has-text-black">
+                            <strong>Cancel</strong>
+                        </button>
+                        <button type="submit" class="button is-success is-rounded has-text-black">
+                            <strong>Login</strong>
+                        </button>
+                        <label class="checkbox has-text-white">
+                            <input type="checkbox" checked="checked" name="remember"> Remember me
+                        </label>
+                    </footer>
+                </form>
+            </div>
         </div>
     </body>
 </html>

@@ -4,8 +4,9 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>LIRC - Linux Infrared Remote Control</title>
-        <link rel="stylesheet" type="text/css" href="/static/content/bulma.css" />
-        <link rel="stylesheet" type="text/css" href="/static/content/site.css" />
+        <link rel="stylesheet" type="text/css" href="/static/css/bulma.css" />
+        <link rel="stylesheet" type="text/css" href="/static/css/site.css" />
+        <link rel="stylesheet" type="text/css" href="/static/css/all.css">
         <link rel="shortcut icon" href="static/raspberry-pi-lirc.ico" />
     </head>
     <body class="has-background-black-ter">
@@ -29,6 +30,7 @@
             <nav class="navbar is-dark is-marginless is-paddingless is-fullhd">
                 <div class="navbar-menu">
                     <button class="button is-success is-outlined" id="ham" onclick="openNav()">&#9776;</button>
+                    <h3 class="has-text-white" style="padding: 10px;">{{ title }}</h3>
                 </div>
             </nav>
             {% block content %}{% endblock %}
