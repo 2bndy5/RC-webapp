@@ -12,9 +12,8 @@
     <body class="has-background-black-ter">
         <script src="/static/scripts/hamburger.js"></script>
 
-        <div id="mySidenav" class="sidenav">
+        <div id="sidenav" class="sidenav">
             <button class="delete has-background-danger is-outlined is-large is-pulled-right" onclick="closeNav()"></button>
-            <!-- char 'x' = &times; -->
             <a href="/settings/user">My preferences</a>
             <div class="favs">
                 {% for r in current_user.remotes %}
@@ -29,7 +28,7 @@
         <div id="main">
             <nav class="navbar is-dark is-marginless is-paddingless is-fullhd">
                 <div class="navbar-menu">
-                    <button class="button is-success is-outlined" id="ham" onclick="openNav()">&#9776;</button>
+                    <button id="ham" class="button is-success is-outlined" onclick="openNav()">&#9776;</button>
                     <h3 class="has-text-white" style="padding: 10px;">{{ title }}</h3>
                 </div>
             </nav>

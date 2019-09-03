@@ -6,10 +6,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-input::placeholder {
-  color: #ffffff;
-}
-
 p {
  color: #ffffff;
 }
@@ -24,7 +20,7 @@ p {
   left: 0;
   background-color: #043692;
   overflow-x: hidden;
-  padding-top: 25px; /* Place content 60px from the top */
+  padding-top: 10px; /* Place content 60px from the top */
   transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
 }
 

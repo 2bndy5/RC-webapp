@@ -12,13 +12,13 @@
 
     </head>
     <body class="has-background-black-ter">
-        <p style="text-align:center; padding:15px;">An account is needed to save your remotes and preferences. No personal information is used online.</p>
+        <p style="text-align:center; padding-top:15px;">An account is needed to save your remotes and preferences. No personal information is used online.</p>
         <div class="columns is-vcentered">
             <div class="column" style="text-align:center;">
                 <button class="button is-info is-medium is-outlined is-rounded" onclick="document.getElementById('getID').style.display='block'">Login</button>
             </div>
             <div class="column">
-                <div class="is-divider is-light" data-content="OR"></div>
+                <div class="is-divider-vertical is-white-ter" data-content="OR"></div>
             </div>
             <div class="column" style="text-align:center;">
                 <button class="button is-success is-medium is-outlined is-rounded" onclick="document.getElementById('makeID').style.display='block'">Create an account</button>
@@ -28,11 +28,11 @@
         <!-- The Modal -->
         <div id="getID" class="modal">
             <div onclick="document.getElementById('getID').style.display='none'" class="modal-background"></div>
-            <div class="modal-card has-background-black-ter animate">
+            <div class="modal-card animate">
                 <form method="post">
                     <header class="modal-card-head has-background-grey-darker">
                         <h1 class="modal-card-title has-text-white">Sign In</h1>
-                        <button class="delete is-large" aria-label="close" onclick="document.getElementById('getID').style.display='none'"></button>
+                        <button class="delete has-background-danger is-large" aria-label="close" onclick="document.getElementById('getID').style.display='none'"></button>
                     </header>
                     <section class="modal-card-body has-background-black-ter has-text-white">
                         <label for="username"><b>Username</b></label>
@@ -62,11 +62,11 @@
         <!-- The Modal (contains the Sign Up form) -->
         <div id="makeID" class="modal">
             <div onclick="document.getElementById('makeID').style.display='none'" class="modal-background"></div>
-            <div class="modal-card has-background-black-ter animate">
+            <div class="modal-card animate">
                 <form method="post">
                     <header class="modal-card-head has-background-grey-darker">
                         <h1 class="modal-card-title has-text-white">Sign Up</h1>
-                        <button class="delete is-large" aria-label="close" onclick="document.getElementById('makeID').style.display='none'"></button>
+                        <button class="delete has-background-danger is-large" aria-label="close" onclick="document.getElementById('makeID').style.display='none'"></button>
                     </header>
                     <section class="modal-card-body has-background-black-ter has-text-white">
                         <p>Please enter your unique name (nicknames are best).</p>
