@@ -68,7 +68,46 @@ p {
   to {-webkit-transform: scale(1)}
 }
 
+.notification {
+  animation: fadeout 3s;
+  -webkit-animation: fadeout 3s;
+  -moz-animation: fadeout 3s;
+  -ms-animation: fadeout 3s;
+  -o-animation: fadeout 3s;
+  z-index: 99;
+  position: fixed;
+  text-align: center;
+  opacity: 0;
+  top: 5px;
+  right: 5px;
+}
+
 @keyframes animatezoom {
   from {transform: scale(0)}
   to {transform: scale(1)}
+}
+
+@keyframes fadeout {
+  from { opacity: 1; }
+  to   { opacity: 0; }
+}
+
+@-moz-keyframes fadeout {
+  from { opacity: 1; }
+  to   { opacity: 0; }
+}
+
+@-webkit-keyframes fadeout {
+  from { opacity: 1; }
+  to   { opacity: 0; }
+}
+
+@-ms-keyframes fadeout {
+  from { opacity: 1; }
+  to   { opacity: 0; }
+}
+
+@-o-keyframes fadeout {
+  from { opacity: 1; }
+  to   { opacity: 0; }
 }

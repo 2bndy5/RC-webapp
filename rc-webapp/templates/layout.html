@@ -33,20 +33,19 @@
                 </div>
             </nav>
             {% block content %}{% endblock %}
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                        {% if category.find("error") > 0 %}
+                            <div class="notification is-danger is-pulled-right">
+                        {% else %}
+                            <div class="notification is-{{ category }} is-pulled-right">
+                        {% endif %}
+                        <p>{{ message }}</p>
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
         </div>
-        {% with messages = get_flashed_messages(with_categories=true) %}
-            {% if messages %}
-                {% for category, message in messages %}
-                    {% if category.find("error") > 0 %}
-                        <div class="notification is-danger">
-                    {% else %}
-                        <div class="notification is-{{ category }}">
-                    {% endif %}
-                    <button class="delete"></button>
-                    <p>{{ message }}</p>
-                    </div>
-                {% endfor %}
-            {% endif %}
-        {% endwith %}
     </body>
 </html>

@@ -4,7 +4,7 @@ This script runs the flask_controller application using a development server.
 https://flask.palletsprojects.com/en/1.0.x/patterns/flashing/#message-flashing-pattern for flashing tutorial
 """
 
-from flask import Flask, render_template, request, flash
+from flask import Flask, render_template, request, flash, redirect
 from flask_login import UserMixin, AnonymousUserMixin, LoginManager, login_required, login_user, logout_user
 from flask_socketio import SocketIO, emit
 
@@ -72,7 +72,7 @@ def login():
                 if users.get(user_name):
                     login_user(users.get(user_name))
                     flash('Logged in successfully.', 'success')
-                    return render_template('remote.html', title='Remote Control')
+                    return redirect('remote')
         else:
             flash('username, {}, does not exist!'.format(user_name), 'error')
     return render_template('login.html')
