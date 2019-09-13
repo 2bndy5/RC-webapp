@@ -69,17 +69,15 @@ p {
 }
 
 .notification {
-  animation: fadeout 3s;
-  -webkit-animation: fadeout 3s;
-  -moz-animation: fadeout 3s;
-  -ms-animation: fadeout 3s;
-  -o-animation: fadeout 3s;
+  animation: fadeout 3s ease-in;
+  animation-delay: 2s;
+  -webkit-animation: fadeout 3s ease-in;
+  -moz-animation: fadeout 3s ease-in;
+  -ms-animation: fadeout 3s ease-in;
+  -o-animation: fadeout 3s ease-in;
   z-index: 99;
-  position: fixed;
   text-align: center;
   opacity: 0;
-  top: 5px;
-  right: 5px;
 }
 
 @keyframes animatezoom {

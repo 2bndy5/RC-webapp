@@ -35,15 +35,28 @@
             {% block content %}{% endblock %}
             {% with messages = get_flashed_messages(with_categories=true) %}
                 {% if messages %}
+            <div class="columns is-vertical is-centered is-overlay">
+                <div class="column is-narrow">
                     {% for category, message in messages %}
-                        {% if category.find("error") > 0 %}
-                            <div class="notification is-danger is-pulled-right">
-                        {% else %}
-                            <div class="notification is-{{ category }} is-pulled-right">
-                        {% endif %}
-                        <p>{{ message }}</p>
-                        </div>
+                        {% set category = category.replace('message', 'info') %}
+                        {% set category = category.replace('error', 'danger') %}
+                    <div class="notification is-{{ category }}">
+                        <span class="icon is-pulled-left has-text-black">
+                            {% if category.find('danger') >= 0 %}
+                            <i class="fas fa-ban"></i>
+                            {% elif category.find('warning') >= 0 %}
+                            <i class="fas fa-exclamation-triangle"></i>
+                            {% elif category.find('info') >= 0 %}
+                            <i class="fas fa-info-circle"></i>
+                            {% elif category.find('success') >= 0 %}
+                            <i class="fas fa-thumbs-up"></i>
+                            {% endif %}
+                        </span>
+                        <p class="has-text-black"><strong>{{ message }}</strong></p>
+                    </div>
                     {% endfor %}
+                </div>
+            </div>
                 {% endif %}
             {% endwith %}
         </div>
