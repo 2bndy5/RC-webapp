@@ -4,7 +4,6 @@ from users import users, User
 
 blueprint = Blueprint('blueprint', __name__)
 
-
 @blueprint.route('/', methods=['GET', 'POST'])
 @blueprint.route('/login', methods=['GET', 'POST'])
 def login():
