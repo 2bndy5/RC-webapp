@@ -1,5 +1,5 @@
-var cameraStream = document.getElementById('camera-stream');
-var cameraStreamWrapper = document.getElementById('camera-stream-wrapper');
+// var cameraStream = document.getElementById('camera-stream');
+// var cameraStreamWrapper = document.getElementById('camera-stream-wrapper');
 var speedController = document.getElementById("speed");
 var turnController = document.getElementById("turn");
 var speedOMeter = document.getElementById('speed-o-meter');
@@ -42,12 +42,12 @@ function sendSpeedTurnValues(gamepadAxes = []) {
 
 // Take the width/height of the camera feed and adjust the sliders accordingly
 function adjustSliderSizes() {
-    let newCamRect = cameraStream.getBoundingClientRect();
-    speedController.width = 80;
-    speedController.height = Math.round(newCamRect.height);
-    turnController.width = Math.round(newCamRect.width);
-    turnController.height = 80;
-    console.log("new Cam dimensions:", Math.round(newCamRect.width), 'x', Math.round(newCamRect.height));
+    // let newCamRect = cameraStream.getBoundingClientRect();
+    // speedController.width = 80;
+    // speedController.height = Math.round(newCamRect.height);
+    // turnController.width = Math.round(newCamRect.width);
+    // turnController.height = 80;
+    // console.log("new Cam dimensions:", Math.round(newCamRect.width), 'x', Math.round(newCamRect.height));
     speedSlider.resize();
     turnSlider.resize();
 }

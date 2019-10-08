@@ -3,7 +3,7 @@ from circuitpython_mpu6050 import MPU6050
 from adafruit_lsm9ds1 import LSM9DS1_I2C
 
 from .hardware_io.check_platform import ON_RASPI, ON_WINDOWS  # , ON_JETSON
-from .hardware_io.config import d_train, IMUs, gps, nav
+from .config import d_train, IMUs, gps, nav
 from .hardware_io.imu import MAG3110, calc_heading, calc_yaw_pitch_roll
 from .hardware_io.camera_manager import CameraManager
 
