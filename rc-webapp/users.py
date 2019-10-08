@@ -21,7 +21,7 @@ class User(UserMixin):
 
     def _load_config(self):
         try:
-            with open('backup\\{}.json'.format(self.id), 'r') as acct_file:
+            with open(f'backup\\{self.id}.json', 'r') as acct_file:
                 for line in acct_file.readlines():
                     # import from json to self.remotes & self.config
                     print(line)

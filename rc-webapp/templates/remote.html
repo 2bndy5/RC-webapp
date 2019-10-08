@@ -1,12 +1,56 @@
 {% extends "layout.html" %}
 
 {% block content %}
+
+<style>
+    #turn{
+        width:100%;
+        height:80px;
+    }
+    #speed{
+        width:80px;
+        height:100%;
+    }
+</style>
+
+<section class="section">
+    <!-- camera feed and sliders -->
+    <div class="container">
+        <div class="columns is-centered" style="height:60%;">
+            <div class="column">
+                <canvas class="slider-vertical has-text-success" id="speed"></canvas>
+            </div>
+            <div class="column is-three-fifths">
+                <canvas class="slider has-text-info" id="turn"></canvas>
+            </div>
+        </div>
+
+        <!-- sliders' textual values -->
+        <div class="level">
+            <div class="level-item has-text-centered">
+                <div>
+                    <p class="heading">Turn</p>
+                    <p class="title" id="turn-o-meter">0</p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered">
+                <div>
+                    <p class="heading">Speed</p>
+                    <p class="title" id="speed-o-meter">0</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+    
+<!-- Initialize websocket I/O-->
 <script src="/static/scripts/socket.io.min.js"></script>
 <script>var socket = io.connect({transports: ['websocket']});</script>
 
-<!-- <script src="/static/scripts/controller.js"></script>
-<script>initRemote();</script> -->
 
-<p>***Placeholder for {{ title }} menu***</p>
+<!-- Initialize controller -->
+<script src="{{ url_for('static', filename='scripts/remote/controller.js') }}"></script>
+<script src="{{ url_for('static', filename='scripts/remote/slider.js') }}"></script>
+<script>initRemote();</script>
 
 {% endblock %}

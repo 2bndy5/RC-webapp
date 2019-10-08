@@ -1,0 +1,9 @@
+{
+   "slide Remote":[
+        "vertical-slider",
+        "horizontal-slider"
+   ],
+   "joy Remote":[
+       "joystick"
+   ]
+}
